@@ -1,0 +1,12 @@
+#error {
+    width: fit-content;
+    margin:auto;
+    font-size: 3rem;
+    font-weight: 600;
+    height: 50%;
+    border: 3px solid white;
+    border-radius: 3px;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}

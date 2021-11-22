@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CLASSREG</title>
+    <link rel="stylesheet" href="{% static 'basestyle.css' %}">
+    {% block style %} {% endblock %}
+</head>
+<body>
+
+<div id="topper">
+    <div id="header">Class Registration</div>
+    <div id="subheader">{% block head %} {% endblock %}</div>
+</div>
+
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

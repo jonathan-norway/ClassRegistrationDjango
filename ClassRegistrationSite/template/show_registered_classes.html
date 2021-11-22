@@ -1,0 +1,9 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% block style %} <link rel="stylesheet" href="{% static 'style.css' %}"> {% endblock %}
+
+{% block head %} Registered Classes {% endblock %}
+{% block content %}
+Show registered classes, and add a button to drop class.
+User should be able to click on class to see details.
+{% endblock %}
