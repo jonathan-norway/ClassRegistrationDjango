@@ -3,8 +3,13 @@ html {
 }
 
 body {
-    background-color: #991100;
+    background: #536976;
+    background: -webkit-linear-gradient(to right, #292E49, #536976);
+    background: linear-gradient(to right, #292E49, #536976);
 
+
+    height: 100%;
+    width: 100%;
 }
 
 /* The topper */
@@ -21,25 +26,27 @@ body {
 
     align-items: center;
     justify-content: space-evenly;
-    background-color: #991100;
+
     color: white;
 }
 
 #header {
     padding: 0.5rem 0rem;
     font-size: 2rem;
-    background-color: #AA2211;
     width: 100%;
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.3rem;
+    background-color: #292E49;
 }
 
 #subheader {
-    font-size: 3rem;
+    font-size: 4rem;
     border-top: 2px solid white;
     width: 100%;
     text-align: center;
+    margin-top: 0.2rem;
+    letter-spacing: 0.2rem;
 }
 
 #content {
@@ -47,4 +54,5 @@ body {
     left: 2.5%;
     position: absolute;
     top: 10rem;
+    background: transparent;
 }

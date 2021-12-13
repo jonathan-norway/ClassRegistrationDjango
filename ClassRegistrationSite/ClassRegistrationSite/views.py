@@ -13,8 +13,8 @@ def login(request):
     # if not, redirect to register
 
 
-def signup(request):
-    return render(request, 'signup.html')
+def register(request):
+    return render(request, 'register_classes.html')
 
 def err(request, err):
     context = {'error': err}
@@ -22,8 +22,18 @@ def err(request, err):
 
 
 #require that user is logged in
-def register(request):
-    return render(request, "register_classes.html")
+from .models import UserRegisterForm
+def signup(request):
+    context = {}
+
+    if request.method == "POST":
+        user = UserRegisterForm(request.POST)
+        user.save()
+        return redirect('main:start')
+
+    else:
+        context["form"] = UserRegisterForm
+    return render(request, "signup.html", context)
 
 def show_schedule(request):
     return render(request, "show_registered_classes.html")

@@ -1,0 +1,12 @@
+.registration-form {
+    width: fit-content;
+    height: fit-content;
+    margin: 3rem auto;
+    color: white;
+    font-size: 3rem;
+    border: 2px white dotted;
+}
+
+input {
+    font-size: 3rem;
+}

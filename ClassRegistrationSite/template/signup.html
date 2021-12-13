@@ -1,10 +1,19 @@
 {% extends 'base_template.html' %}
 {% load static %}
-{% block style %} <link rel="stylesheet" href="{% static 'login.css'%}"> {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'signup.css'%}"> {% endblock %}
 
 {% block head %} Sign Up {% endblock %}
 {% block content %}
 
-<h2>Signup goes here</h2>
-
+    {% if error %}
+        {{ error }}
+    {% endif %}
+<div class="registration-form">
+{% if form %}
+    <form action="{% url 'signup' %}" method="POST">
+            {{ form.as_p }}
+    <input type="submit" value="Register">
+    </form>
+{% endif %}
+</div>
 {% endblock %}
