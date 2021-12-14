@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate,login, logout
+from django.contrib.auth import authenticate, login, logout
 
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 def redirect_login(request):
     return redirect("login")
@@ -10,6 +10,8 @@ def redirect_login(request):
 
 def login(request):
     context = {}
+    if request.user.is_authenticated:
+        return redirect('register')
     if(request.method == "POST"):
         user = authenticate(request.POST["username"], request.POST["password"])
         if user is not None:
@@ -19,8 +21,25 @@ def login(request):
     context["form"] = AuthenticationForm
 
     return render(request, 'login.html', context)
-    # if user is already registered, redirect to schedule
-    # if not, redirect to register
+
+
+
+def signup(request):
+    context = {}
+    if request.user.is_authenticated:
+        return redirect('register')
+
+    if request.method == "POST":
+        user = UserCreationForm(request.POST)
+        if user.is_valid():
+            user.save()
+            login(request, user)
+            return redirect('register')
+
+    context["form"] = UserCreationForm(request.POST)
+    return render(request, "signup.html", context)
+
+
 
 
 def register(request):
@@ -32,18 +51,8 @@ def err(request, err):
 
 
 #require that user is logged in
-from .models import UserRegisterForm
-def signup(request):
-    context = {}
 
-    if request.method == "POST":
-        user = UserRegisterForm(request.POST)
-        user.save()
-        return redirect('main:start')
 
-    else:
-        context["form"] = UserRegisterForm
-    return render(request, "signup.html", context)
 
 def show_schedule(request):
     return render(request, "show_registered_classes.html")

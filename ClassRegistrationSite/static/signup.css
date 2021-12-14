@@ -7,16 +7,41 @@
     border: 2px white dotted;
 }
 
+.login-form {
+    width: fit-content;
+    margin: 3rem auto;
+}
+
 input {
     font-size: 3rem;
+    display: block;
+    margin: 0 auto 2rem;
+    width: 100%;
 }
 
-.help-text {
-    visibility: hidden;
 
+input[type='submit'] {
+    background-color: white;
+    color: black;
+    width: 100%;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-small {
-    visibility: hidden;
-    font-size: 0;
+input[type='submit']:hover, .redirect-button:hover {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.redirect-button {
+    background-color: white;
+    display: block;
+    color: black;
+    width: fit-content;
+    margin: 5rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+    text-decoration: none;
+    border-radius: 0.2rem;
 }

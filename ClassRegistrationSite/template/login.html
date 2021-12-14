@@ -3,22 +3,21 @@
 
 {% block style %} <link rel="stylesheet" href="{% static 'signup.css'%}"> {% endblock %}
 
+{% block head %}Login{% endblock %}
 {% block content %}
-    {% block head %}Login{% endblock %}
 
-    <p>Here goes the login form</p>
 
 {% if error %}
         {{ error }}
-    {% endif %}
+{% endif %}
 
 <div class="login-form">
-{% if form %}
-    {% load crispy_forms_tags %}
     <form action="{% url 'login' %}" method="POST">
-            {{ form|crispy }}
-    <input type="submit" class="btn btn-primary" value="Log In">
+        {% csrf_token %}
+        <input type="text" class="username-field" placeholder="Username">
+        <input type="password" class="password-field" placeholder="Password">
+        <input type="submit" class="btn btn-primary" value="Log In">
     </form>
-{% endif %}
 </div>
+    <a href="{% url 'signup' %}" class="redirect-button">Don't have an account?</a>
 {% endblock %}

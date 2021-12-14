@@ -29,13 +29,16 @@ MAJOR_CHOICES = [
 # CHECK /signup to see form
 # Need better styling
 class UserRegisterForm(UserCreationForm):
-    first_name = forms.CharField(max_length=50, label="First Name")
-    last_name = forms.CharField(max_length=50, label="Last Name")
-    date_of_birth = forms.DateField()
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
-    year_started = forms.IntegerField()
-    student_status = forms.ChoiceField(choices=[("FR", "Freshman"), ("SO", "Sophomore"), ("JR", "Junior"), ("SR", "Senior"), ("GR", "Grad Student")], initial="FR")
-    major = forms.ChoiceField(choices=MAJOR_CHOICES, initial="CISC")
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Last Name', 'class': 'email-field'}))
+    date_of_birth = forms.DateField(label="Date of Birth",widget=forms.SelectDateWidget( attrs={'placeholder':'Date of Birth'}))
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+    year_started = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'Year Started'}))
+    student_status = forms.ChoiceField(widget=forms.Select(attrs={'placeholder': 'Computer Science', 'class':'select-field'}),choices=[("FR", "Freshman"), ("SO", "Sophomore"), ("JR", "Junior"), ("SR", "Senior"), ("GR", "Grad Student")], initial="FR")
+    major = forms.ChoiceField(widget=forms.Select(attrs={'class':'select-field'}), choices=MAJOR_CHOICES, initial='Computer Science')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Confirm Password'}))
+
 
     class Meta:
         model = User
