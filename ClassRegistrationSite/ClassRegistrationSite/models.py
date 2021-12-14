@@ -24,17 +24,28 @@ MAJOR_CHOICES = [
     ("POLS", "Political Science"),
 ]
 
+
+# FIX WITH APPROPRIATE WIDGETS
+# CHECK /signup to see form
+# Need better styling
 class UserRegisterForm(UserCreationForm):
-    first_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
+    first_name = forms.CharField(max_length=50, label="First Name")
+    last_name = forms.CharField(max_length=50, label="Last Name")
     date_of_birth = forms.DateField()
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
     year_started = forms.IntegerField()
-    student_status = forms.ChoiceField(choices=[("FR", "Freshman"), ("SO", "Sophomore"), ("JR", "Junior"), ("SR", "Senior"), ("GR", "Grad Student")])
-    major = forms.ChoiceField(choices=MAJOR_CHOICES)
+    student_status = forms.ChoiceField(choices=[("FR", "Freshman"), ("SO", "Sophomore"), ("JR", "Junior"), ("SR", "Senior"), ("GR", "Grad Student")], initial="FR")
+    major = forms.ChoiceField(choices=MAJOR_CHOICES, initial="CISC")
 
     class Meta:
         model = User
         fields = ['email', 'first_name', 'last_name', 'password1', 'password2', 'date_of_birth', 'year_started', 'student_status', 'major' ]
+        help_texts = {
+            'username': None,
+            'email': None,
+            'password1': None,
+            'password2': None,
+        }
 
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)

@@ -10,3 +10,13 @@
 input {
     font-size: 3rem;
 }
+
+.help-text {
+    visibility: hidden;
+
+}
+
+small {
+    visibility: hidden;
+    font-size: 0;
+}

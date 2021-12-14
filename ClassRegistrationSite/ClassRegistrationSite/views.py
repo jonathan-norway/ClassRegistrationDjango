@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate,login, logout
+
+from django.contrib.auth.forms import AuthenticationForm
 
 def redirect_login(request):
     return redirect("login")
@@ -7,8 +10,15 @@ def redirect_login(request):
 
 def login(request):
     context = {}
-    if(request.method == "GET"):
-        return render(request, 'login.html')
+    if(request.method == "POST"):
+        user = authenticate(request.POST["username"], request.POST["password"])
+        if user is not None:
+            login(request, user)
+            return redirect('register')
+
+    context["form"] = AuthenticationForm
+
+    return render(request, 'login.html', context)
     # if user is already registered, redirect to schedule
     # if not, redirect to register
 
@@ -42,3 +52,10 @@ def show_class_details(request, classID):
     # if classID doesnt exist, redirect to error with appropriate args.
     context = {classID} #Just to try html
     return render(request, "show_classes.html", context)
+
+
+
+
+def signout(request):
+    logout(request)
+    return redirect('login')
