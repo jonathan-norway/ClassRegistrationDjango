@@ -34,7 +34,7 @@ def signup(request):
         if user.is_valid():
             user.save()
             login(request, user)
-            return redirect('register')
+            return redirect('landing')
 
     context["form"] = UserCreationForm(request.POST)
     return render(request, "signup.html", context)
@@ -53,7 +53,7 @@ def signout(request):
 
 @login_required(login_url='login')
 def landingpage(request):
-    pass
+    return render(request, 'logged_in_base.html')
 
 
 @login_required(login_url='login')
