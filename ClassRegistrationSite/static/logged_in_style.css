@@ -1,15 +1,40 @@
 /* STYLE FOR ALL THE LOGGED IN VIEWS*/
 
 .button-div {
+    position: absolute;
+    top: 10rem;
+    left: 0;
     width: 100%;
-    display: inline-block;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.button-div .button {
-    width: 50vw;
-    height: 80vh;
+.button-div .button,
+.button-div .button:hover,
+.button-div .button:visited{
+    width: 30%;
+    height: fit-content;
     background-color: white;
     font-size: 5rem;
+    border-radius: 20% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-decoration: none;
+    color: black;
+}
 
+
+.logout-button {
+    background-color: white;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }

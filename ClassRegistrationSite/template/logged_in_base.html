@@ -3,8 +3,9 @@
 
 {% block style %} <link rel="stylesheet" href="{% static 'logged_in_style.css'%}"> {% endblock %}
 
-{% block head %}Logged In{% endblock %}
+{% block head %}Logged in as {% firstof name "User"  %}{% endblock %}
 {% block content %}
+    <a class="logout-button" href="{% url 'signout' %}">Sign Out</a>
 <div class="button-div">
     <a class="button" href="{% url 'register' %}">Register For Classes</a>
     <a class="button" href="{% url 'show_schedule' %}">Show Schedule</a>

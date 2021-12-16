@@ -25,13 +25,18 @@ MAJOR_CHOICES = [
 ]
 
 class Student(models.Model):
-
-
-
+## FOR MAME
+# OneToOne relationship to user
+# Fullname
+# Major
+# Expected Grad.Year
 
 
 class Class(models.Model):
-
+# ManyToMany relationship
+# classID AutoField
+# classname
+# subject
 
 
 
