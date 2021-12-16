@@ -24,12 +24,9 @@ urlpatterns = [
     path('', views.redirect_login, name='blank'),
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
-    # register for classes
-    path('register/', views.register, name="register"),
-    #show registered classes
-    path('show_schedule', views.show_schedule, name="show_schedule"),
-    #show all classes, based on class ID
-    path('classes/<int:classID>', views.show_class_details, name="class_details"),
+
+    path('register/', views.register_classes, name="register"),   #show all classes, based on class ID
+    path('show_schedule/', views.show_schedule, name="show_schedule"),  #show registered classes
     path('<slug:err>/', views.err, name="err"),
 
 ]
