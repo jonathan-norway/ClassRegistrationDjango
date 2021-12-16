@@ -3,7 +3,7 @@
 
 {% block style %} <link rel="stylesheet" href="{% static 'logged_in_style.css'%}"> {% endblock %}
 
-{% block head %}Logged in as {% firstof name "User"  %}{% endblock %}
+{% block head %}Logged in as {% firstof name|capfirst "User"  %}{% endblock %}
 {% block content %}
     <a class="logout-button" href="{% url 'signout' %}">Sign Out</a>
 <div class="button-div">

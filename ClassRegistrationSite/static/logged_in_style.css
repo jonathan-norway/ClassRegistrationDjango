@@ -29,7 +29,11 @@
 }
 
 
-.logout-button {
+.logout-button,
+.logout-button:visited,
+.go-back-button,
+.go-back-button:visited {
+    color: black;
     background-color: white;
     font-size: 3rem;
     text-decoration: none;
@@ -37,4 +41,49 @@
     display: block;
     width: fit-content;
     margin: 0 auto;
+}
+
+table {
+    width: fit-content;
+    min-width: 40%;
+    margin: 2rem auto;
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+
+caption {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+    letter-spacing: 0.2rem;
+}
+thead {
+    font-size: 3rem;
+    text-align: center;
+}
+
+tr {
+    font-size: 3rem;
+    transition: font-size 0.2s;
+}
+
+td {
+    border: 1px solid white;
+}
+
+tr:hover {
+    font-size: 4rem;
+}
+
+tr:nth-child(even) {
+    background-color: #292E49;
+}
+
+.class-row {
+    width: fit-content;
+    min-width: 10rem;
+}
+
+.class-cell {
+    padding: 0.5rem 1rem;
 }

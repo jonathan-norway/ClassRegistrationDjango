@@ -65,12 +65,16 @@ def register_classes(request):
     # CINDY
     # GET ALL CLASSES FROM
     # ASSIGN TO VARIABLE classes
-    print("Entered register")
 
 
 
-    #context["classes"] = classes
-    return render(request, 'register_classes.html')
+    exampleclass = [
+        'Intro to Computer Science',
+        '1',
+        'CISC'
+    ]
+    context["classes"] = [exampleclass for _ in range(10)]
+    return render(request, 'register_classes.html', context)
 
 
 

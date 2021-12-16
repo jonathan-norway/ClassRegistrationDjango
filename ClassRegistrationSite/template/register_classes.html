@@ -4,7 +4,25 @@
 
 {% block head %} Register Classes {% endblock %}
 {% block content %}
-Here goes a list of available classes. Should be able to filter classes
-Should be able to click on class to see details (prereq)
-Add class to "shopping-cart"
+<a class="go-back-button" href="{% url 'landingpage' %}">Go Back</a>
+    <table id="class-table">
+    <caption>Available Classes</caption>
+    <thead class="table-header-row">
+        <td class="column-header">Class Name</td>
+        <td class="column-header">Class ID</td>
+        <td class="column-header">Major</td>
+        <td class="column-header">Extra</td>
+        {% comment "headers" %}
+        <td class="column-header"></td>
+        {% endcomment %}
+    </thead>
+    {% for class in classes %}
+        <tr class="class-row">
+            <td class="class-cell">{{ class.0 }}</td>
+            <td class="class-cell">{{ class.1 }}</td>
+            <td class="class-cell">{{ class.2 }}</td>
+            <td class="class-cell">None</td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
