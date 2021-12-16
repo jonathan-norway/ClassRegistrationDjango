@@ -1,9 +1,12 @@
 {% extends 'base_template.html' %}
 {% load static %}
 
-{% block style %} <link rel="stylesheet" href="{% static 'logged_in_base.css'%}"> {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'logged_in_style.css'%}"> {% endblock %}
 
 {% block head %}Logged In{% endblock %}
 {% block content %}
-
+<div class="button-div">
+    <a class="button" href="{% url 'register' %}">Register For Classes</a>
+    <a class="button" href="{% url 'show_schedule' %}">Show Schedule</a>
+</div>
 {% endblock %}

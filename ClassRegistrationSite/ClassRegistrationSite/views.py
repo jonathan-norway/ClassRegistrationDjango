@@ -15,7 +15,7 @@ def login(request):
     if(request.method == "POST"):
         user = authenticate(request.POST["username"], request.POST["password"])
         if user is not None:
-            login(request, user)
+            login(user)
             return redirect('register')
 
     context["form"] = AuthenticationForm
@@ -52,7 +52,7 @@ def signout(request):
     return redirect('login')
 
 @login_required(login_url='login')
-def landing(request):
+def landingpage(request):
     pass
 
 

@@ -1,0 +1,15 @@
+/* STYLE FOR ALL THE LOGGED IN VIEWS*/
+
+.button-div {
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+}
+
+.button-div .button {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    font-size: 5rem;
+
+}
