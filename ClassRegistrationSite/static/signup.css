@@ -54,3 +54,9 @@ input[type='submit']:hover, .redirect-button:hover {
     text-decoration: none;
     border-radius: 0.2rem;
 }
+.error {
+    width: 100%;
+    text-align: center;
+    color: indianred;
+    font-size: 4rem;
+}

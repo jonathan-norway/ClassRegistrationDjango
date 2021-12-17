@@ -22,8 +22,9 @@ app_name = "default"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.redirect_login, name='blank'),
-    path('login/', views.login, name='login'),
+    path('login/', views.userlogin, name='login'),
     path('signup/', views.signup, name='signup'),
+    path('signout/', views.signout, name='signout'),
     path('landingpage/', views.landingpage, name='landingpage'),
     path('register/', views.register_classes, name="register"),   #show all classes, based on class ID
     path('show_schedule/', views.show_schedule, name="show_schedule"),  #show registered classes

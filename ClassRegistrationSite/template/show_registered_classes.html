@@ -2,8 +2,28 @@
 {% load static %}
 {% block style %} <link rel="stylesheet" href="{% static 'logged_in_style.css' %}"> {% endblock %}
 
-{% block head %} Registered Classes {% endblock %}
+{% block head %} Show Schedule {% endblock %}
 {% block content %}
-Show registered classes, and add a button to drop class.
-User should be able to click on class to see details.
+<a class="go-back-button" href="{% url 'landingpage' %}">Go Back</a>
+    <table id="class-table">
+    <caption>Registered Classes</caption>
+    <thead class="table-header-row">
+        <td class="column-header">Class Name</td>
+        <td class="column-header">Class ID</td>
+        <td class="column-header">Major</td>
+        <td class="column-header">Extra</td>
+        {% comment "headers" %}
+        <td class="column-header"></td>
+        {% endcomment %}
+    </thead>
+    {% for class in classes %}
+        <tr class="class-row">
+            {{ class }}
+            <td class="class-cell">yes</td>
+            <td class="class-cell">{{ class.class_id }}</td>
+            <td class="class-cell">{{ class.major }}</td>
+            <td class="class-cell">None</td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}

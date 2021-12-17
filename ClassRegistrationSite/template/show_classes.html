@@ -2,7 +2,27 @@
 {% load static %}
 {% block style %} <link rel="stylesheet" href="{% static 'logged_in_style.css' %}"> {% endblock %}
 
-{% block head %} Show Classes {% endblock %}
+{% block head %} Show Schedule {% endblock %}
 {% block content %}
-Show class info here
+<a class="go-back-button" href="{% url 'landingpage' %}">Go Back</a>
+    <table id="class-table">
+    <thead>Registered Classes</thead>
+    <tr class="table-header-row">
+        <td class="column-header">Class Name</td>
+        <td class="column-header">Class ID</td>
+        <td class="column-header">Major</td>
+        <td class="column-header">Extra</td>
+        {% comment "headers" %}
+        <td class="column-header"></td>
+        {% endcomment %}
+    </tr>
+    {% for class in classes %}
+        <tr class="class-row">
+            <td class="class-cell">{{ class.0 }}</td>
+            <td class="class-cell">{{ class.class_id }}</td>
+            <td class="class-cell">{{ class.major }}</td>
+            <td class="class-cell">None</td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
