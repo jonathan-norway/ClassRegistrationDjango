@@ -25,12 +25,15 @@ MAJOR_CHOICES = [
 ]
 
 class Student(models.Model):
-
-
-
-
+    fullName = models.CharField(max_length=50)
+    major = models.CharField(max_length=50)
+    expectedGradDate = models.IntegerField(max_length=50)
 
 class Class(models.Model):
+    classId = models.IntegerField(max_length=50)
+    className = models.CharField(max_length=50)
+    subject = models.CharField(max_length=50)
+
 
 
 

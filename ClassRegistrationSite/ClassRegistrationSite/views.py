@@ -59,6 +59,9 @@ def landingpage(request):
 @login_required(login_url='login')
 def register_classes(request):
     return render(request, 'register_classes.html')
+    context = {}
+    ##Cindy
+
 
 
 
