@@ -72,15 +72,12 @@ def register_classes(request):
     return render(request, 'register_classes.html', context)
 
 
-
-
-
-
 @login_required(login_url='login')
 def show_schedule(request):
+    return render(request, )
     context = {}
-    # CINDY
-    # get list of classes for user
+
+
     user = request.user
 
     # assign list to variable classList

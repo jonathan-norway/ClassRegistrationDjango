@@ -3,9 +3,8 @@ from django import forms
 #Resources:
 # https://docs.djangoproject.com/en/3.2/ref/forms/fields/
 # https://docs.djangoproject.com/en/3.2/topics/forms/
-# : MAYBE ITS EASIER TO CREATE FORM FROM MODEL??
 # https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
-# : We need signup form
+
 
 class SignUpForm(forms.Form):
     user_id = forms.IntegerField(auto_id=True) #

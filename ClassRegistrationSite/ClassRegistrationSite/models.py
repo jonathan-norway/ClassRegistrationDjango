@@ -29,10 +29,16 @@ class Student(models.Model):
     major = models.CharField(max_length=50)
     expectedGradDate = models.IntegerField(max_length=50)
 
+    def __str__(self):
+        return self.fullName
+
 class Class(models.Model):
     classId = models.IntegerField(max_length=50)
     className = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.classId
 
 
 
